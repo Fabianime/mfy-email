@@ -1,0 +1,250 @@
+// These are the styles to make some of the templates look extra nice.
+// Feel free to remove these styles for production!
+
+// Body Styles 
+body,
+html, 
+.body {
+  background: $black !important;
+}
+
+.container.header {
+  background: $black;
+}
+
+.body-drip {
+  border-top: 8px solid #663399;
+}
+
+// Full Width Headers
+.header-mfy {
+  position: absolute !important;
+  background: #111111 !important;
+  opacity: 0.9;
+  height: 75px;
+  max-width: $global-width;
+}
+
+.header {
+  background: $black;
+}
+
+.header .columns {
+  padding-bottom: 0;
+}
+
+.header p {
+  color: $global-font-color;
+  padding-top: 15px;
+}
+
+.header .wrapper-inner {
+  padding: 20px;
+}
+
+.header .container {
+  background: transparent;
+}
+
+// Social Media
+table.button.facebook table td {
+  background: #3B5998 !important;
+  border-color: #3B5998;
+}
+
+table.button.twitter table td {
+  background: #1daced !important;
+  border-color: #1daced;
+}
+
+table.button.google table td {
+  background: #DB4A39 !important;
+  border-color: #DB4A39;
+}
+
+.wrapper.secondary {
+  background: $black;
+}
+
+
+.callout .fullscreen th .columns {
+  padding: 0px !important;
+}
+.callout .fullscreen {
+  background: $mfy-background-color !important;
+  color: $white !important;
+  border: 0px !important;
+}
+
+.callout .fullscreen th p{
+  color: $white !important;
+}
+
+.callout .list{
+  border: 0px !important; 
+  background: $mfy-background-color !important;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background: $black;
+    
+}
+
+table {
+  background: $mfy-background-color;
+  color: $white;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+li {
+  margin-left: 15px;
+}
+
+.footer table {
+  text-decoration: none !important;
+  text-decoration-color: none !important;
+  background: $black !important;
+}
+.footer {
+  background: $black !important;
+}
+
+.header table {
+  background: $black;
+}
+
+hr {
+      margin-bottom: 15px;
+}
+.afterStrong {
+  margin-top: 5px !important; 
+  margin-bottom: 0px !important; 
+}
+.afterStrongDatenschutz {
+  margin-top: 5px !important;
+}
+
+.ausstattungsmerkmale {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
+}
+
+.preis-einheit th{
+    text-align: center !important;
+}
+
+@media only screen and (max-width: 600px) { 
+  .hide_on_mobile { display: none !important;}       
+  .show_on_mobile { display: block !important;}       
+}
+@media only screen and (min-width: 600px) { 
+  .hide_on_mobile { display: block !important;}
+  .show_on_mobile { display: none !important;}       
+}
+
+.strong th{
+  padding-bottom: 3px !important;
+}
+
+.highlight {
+  color: $primary-color;
+}
+
+.car-img{
+  height:auto !important;
+  max-width:600px !important;
+  width: 100% !important;
+}
+.preTag {
+   -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+
+  -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+
+  white-space: -moz-pre-wrap; 
+  white-space: -pre-wrap; 
+  white-space: -o-pre-wrap; 
+  word-wrap: break-word; 
+}
+
+.gmail th{
+  padding-left: 0px !important;
+}
+
+
+@media only screen and (max-width:596px){
+  .tableMergeTable1{
+    display:inline;
+    position:absolute;
+  }
+  .tableMergeTable2{
+    display:inline;
+    position:relative;
+  }
+  .removeBg table{
+    background-color:transparent!important
+  }
+  .pasSpecial{
+    margin-bottom: 10px !important;
+  }
+  .tableMerge1{
+    line-height:2.5rem
+  }
+  .tableMerge2{
+    padding-top:1.4rem;
+    line-height:inherit;
+    display:inline-block
+  }
+  .tableMergeSpecial{
+    padding-top:1rem;
+    padding-bottom: 0.1rem;
+    line-height:inherit;
+    display:inline-block
+  }
+
+  .specialWidth{
+    width:100%!important
+  }
+
+  .pas pas:nth-child(1){
+    padding-top:1.7rem;
+  }
+  .pas pas:nth-child(11){
+    padding-top:1.5rem;
+  }
+
+  .pasSpecial{
+    //padding-top:1rem !important;
+    //padding-bottom:0.3rem !important;
+  }
+
+  p.pas{
+    margin-bottom: 0px !important;
+  }
+  .eMail{
+    word-break: break-all !important;
+  }
+  .vehicleLink{
+    margin-top: 10px !important;
+  }
+  .vehicleLinkP{
+    margin-bottom: 0px !important;
+  }
+}
+
+.vehicleLink{
+  margin-top: -10px;
+}

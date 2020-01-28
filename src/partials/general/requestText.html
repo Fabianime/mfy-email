@@ -1,0 +1,28 @@
+<!-- requestText -->
+<row class="strong" id="requestTextHeadline">
+    <columns large="12">
+        <strong>{{request-text}}</strong>
+    </columns>
+</row>
+<row id="requestTextContent">
+    <columns small="12">
+        [#if message?? && message != ""]
+        <P>${message?replace("\n", "<br>")}</P>
+        [#else]
+        {{no-message}}
+        <br>
+        [/#if]
+
+        [#if calculationData?? && calculationData.origin?? && calculationData.destination??]
+        <br><br>
+        {{request-text-startLocation}}: <span class="highlight">${calculationData.origin}</span> <br>
+        {{request-text-destination}}: <span class="highlight">${calculationData.destination}</span>
+        [/#if]
+    </columns>
+</row>
+
+<row>
+    <columns large="16">
+        <hr>
+    </columns>
+</row>

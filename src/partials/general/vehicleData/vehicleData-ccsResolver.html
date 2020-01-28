@@ -1,0 +1,56 @@
+<!-- vehicleData-ccsResolver -->
+[#if CcsVehicleInfo?? && CcsVehicleInfo.technicalInformation??]
+  [#assign techInfo = CcsVehicleInfo.technicalInformation]
+  <row class="strong" id="vehicleData-ccsResolverHeadline">
+    <columns large="12">
+      <strong>{{mercedes-config-text}}</strong>
+    </columns>
+  </row>
+  [#assign displayData = [
+  {'displayVariable':'techInfo.vehicleName','displayLabel':'{{model}}'},
+  {'displayVariable':'techInfo.body','displayLabel':'{{body}}'},
+  {'special':'powerKw'},
+  {'special':'fuelType'},
+  {'special':'transmission'},
+  {'special':'onlineCode'}
+  ]]
+  <table class="gmail" id="userDataContent">
+    [#list displayData as displayValue]
+      [#if displayValue.special??]
+        {{>listItemSpecial_VS-Resolver}}
+      [#else]
+        {{>listItem}}
+      [/#if]
+    [/#list]
+  </table>
+  <row>
+    <columns large="16">
+      <hr>
+    </columns>
+  </row>
+[#elseif OnlineCode??]
+  <row class="strong">
+    <columns large="12">
+      <strong>{{mercedes-config-text}}</strong>
+    </columns>
+  </row>
+  <table class="gmail">
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{onlineCode}}:
+        </p>
+      </th>
+      <th style="vertical-align:bottom;" class="small-12 large-8">
+        <p class="pasSpecial" style="margin-bottom: 0px">
+          ${OnlineCode}
+        </p>
+      </th>
+    </tr>
+  </table>
+  <row>
+    <columns large="16">
+      <hr>
+    </columns>
+  </row>
+[/#if]

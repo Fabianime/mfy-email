@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+     <!-- <style> -->
+    <link rel="stylesheet" type="text/css" href="{{root}}css/app.css">
+    <meta charset="utf-8">
+  </head>
+  <body class="indexBody">
+    <table class="indexBody">
+      <tr>
+        <td class="center" align="center" valign="top" style="padding-bottom: 50px;">
+          <center>
+            {{> body}}
+          </center>
+        </td>
+      </tr>
+    </table>
+    <script type="text/javascript">
+      function toggleList(parentElement) {
+        var htmlElement = document.getElementById(parentElement + "_child")
+        if(htmlElement.style.cssText.length > 0){
+          if(htmlElement.style.maxHeight === "0px"){
+            console.log("if");
+            htmlElement.style.maxHeight = "500px";
+          }else if(htmlElement.style.maxHeight === "500px"){
+            console.log("else if");
+            htmlElement.style.maxHeight = "0px";
+          }else{
+            console.log("else");
+            htmlElement.style.maxHeight = "500px";
+          }
+        }else{
+          htmlElement.classList.remove('sliderClosed');
+          if(!htmlElement.classList.contains('slider')){
+            htmlElement.classList.add('slider');
+            htmlElement.classList.add('closed');        
+          }
+          
+          htmlElement.classList.toggle('closed');
+
+        }
+      }
+    </script>
+  </body>
+</html>
+

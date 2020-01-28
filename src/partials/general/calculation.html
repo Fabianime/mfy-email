@@ -1,0 +1,154 @@
+<!-- price-dummyData -->
+[#if calculationData?? &&
+  calculationData.costFirstFourKm?? && calculationData.costAfterFourKm?? && calculationData.totalCost?? &&
+  calculationData.distanceInKm?? && calculationData.distanceInKm.roundedUp?? && calculationData.distanceInKm.exact??]
+<row class="strong">
+  <columns large="12">
+    <strong>{{calculation-headline}}</strong>
+  </columns>
+</row>
+<br>
+<row>
+  <columns class="strong" large="12">
+    <strong>{{calculation-baseData}}</strong>
+  </columns>
+</row>
+
+<table class="gmail">
+  <tr>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        {{calculation-basicFee}}
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        {{calculation-eur}}
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p class="pasSpecial" style="margin-bottom: 0">
+        3.50 €
+      </p>
+    </th>
+  </tr>
+  <tr>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        {{calculation-first4KM}}
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        {{calculation-eur}}
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p class="pasSpecial" style="margin-bottom: 0">
+        2.50 €
+      </p>
+    </th>
+  </tr>
+  <tr>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        {{calculation-after4KM}}
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        {{calculation-eur}}
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p class="pasSpecial" style="margin-bottom: 0">
+        2.00 €
+      </p>
+    </th>
+  </tr>
+  <tr>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        {{calculation-totalDistance}}
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        {{calculation-km}}
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p class="pasSpecial" style="margin-bottom: 0">
+        ${calculationData.distanceInKm.roundedUp} {{calculation-km}} (${calculationData.distanceInKm.exact} {{calculation-km}})
+      </p>
+    </th>
+  </tr>
+</table>
+
+<br>
+<row>
+  <columns class="strong" large="12">
+    <strong>{{calculation-calcHeadline}}</strong>
+  </columns>
+</row>
+
+<table class="gmail">
+  <tr>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        {{calculation-costFirst4KM}}
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        {{calculation-eur}}
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p class="pasSpecial" style="margin-bottom: 0">
+        ${calculationData.costFirstFourKm} €
+      </p>
+    </th>
+  </tr>
+  <tr>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        {{calculation-costAfter4KM}}
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        {{calculation-eur}}
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p class="pasSpecial" style="margin-bottom: 0">
+        ${calculationData.costAfterFourKm} €
+      </p>
+    </th>
+  </tr>
+  <tr>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        <strong class="strong highlight">{{calculation-totalCost}}</strong>
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0">
+        <strong class="strong highlight">{{calculation-eur}}</strong>
+      </p>
+    </th>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p class="pasSpecial" style="margin-bottom: 0">
+        <strong class="strong highlight">${calculationData.totalCost} € </strong>
+      </p>
+    </th>
+  </tr>
+</table>
+
+<row>
+  <columns large="16">
+    <hr>
+  </columns>
+</row>
+[/#if]

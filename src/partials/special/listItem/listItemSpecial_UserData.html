@@ -1,0 +1,25 @@
+[#if displayValue.special == 'FirstName']
+  [#if FirstName?? && LastName??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{name}}:
+        </p>
+      </th>
+
+      [#if FirstName != "" && LastName != ""]
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            ${FirstName} ${LastName}
+          </p>
+        </th>
+      [#else]
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            {{not-specified}}
+          </p>
+        </th>
+      [/#if]
+    </tr>
+  [/#if]
+[/#if]

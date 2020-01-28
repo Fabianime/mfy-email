@@ -1,0 +1,23 @@
+[#if displayValue.displayVariable?eval??]
+  <tr>
+    <th style="vertical-align:bottom;" class="small-12 large-4">
+      <p style="margin-bottom: 0px">
+        ${displayValue.displayLabel}:
+      </p>
+    </th>
+
+    [#if displayValue.displayVariable?eval != ""] 
+      <th style="vertical-align:bottom;" class="small-12 large-8">
+        <p class="pasSpecial" style="margin-bottom: 0px">
+          ${displayValue.displayVariable?eval}
+        </p>
+      </th>
+    [#else]
+      <th style="vertical-align:bottom;" class="small-12 large-8">
+        <p class="pasSpecial" style="margin-bottom: 0px">
+          {{not-specified}}
+        </p>
+      </th>
+    [/#if]
+  </tr>
+[/#if]

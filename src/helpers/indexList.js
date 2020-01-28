@@ -1,0 +1,4 @@
+
+          module.exports = function(content) {
+            return "<h1 class=\"indexCategories\" onClick=\"toggleList('Email-customer')\">Email-customer</h1>\n        <div class=\"sliderClosed indexCategoriesChild\" id=\"Email-customer_child\"><div class=\"indexCountries\" onClick=\"toggleList('Email-customer_content.ftl')\">content.ftl</div>\n            <div class=\"sliderClosed indexCountriesChild\" id=\"Email-customer_content.ftl_child\"><a class=\"indexLinks\" target=\"_blank\" href=\"/displayFile?filePath=./dist/Email-customer/content.ftl\">undefined Customer</a><br></div></div>";
+          };

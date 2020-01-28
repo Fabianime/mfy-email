@@ -1,0 +1,15 @@
+<!-- endText-noConsent -->
+
+<row id="endText-noConsent">
+  <columns large="12">
+    <p>
+      <br>
+        {{end-text}} <br><br>
+        [#if "{{end-text-person-important}}" == "" && SelectedDealer??  && ( SelectedDealer?is_hash || SelectedDealer?is_hash_ex ) && SelectedDealer.formattedData?? && SelectedDealer.formattedData.nameline1?? && SelectedDealer.formattedData.nameline1 != ""]
+          ${SelectedDealer.formattedData.nameline1}<br>
+        [#else]
+          {{end-text-person}}
+        [/#if]
+    </p>
+  </columns>
+</row>

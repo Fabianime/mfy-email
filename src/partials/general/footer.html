@@ -1,0 +1,13 @@
+<!-- footer -->
+  <row class="strong" id="footer">
+    <columns class="wrapper-inner">
+        <small>
+          <strong>Signatur</strong><br>
+          [#list Signature.signatureElements as signatureElem]
+            [#if signatureElem.htmlSnippet?? && signatureElem.htmlSnippet != ""]
+              [@signatureElem.htmlSnippet?interpret /]
+            [/#if]
+          [/#list]
+        </small>
+    </columns>
+  </row>

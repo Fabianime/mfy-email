@@ -1,0 +1,68 @@
+.indexBody{
+  background: #757575 !important;
+}
+
+.indexCategories:hover {
+  cursor: pointer;
+}
+.indexCategories {
+  color: black;
+  border: solid 2px;
+  border-top: 0px;
+  margin: 0px;
+  margin-bottom: 0px !important;
+}
+
+.indexCountries:hover {
+  cursor: pointer;
+}
+.indexCountries {
+  font-size: 20px;
+  border: solid 1px lightgray;
+  border-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.indexCountriesChild {
+  border: solid 1px lightgray;
+  border-top: 0px;
+  border-bottom: 0px;
+  font-size: 20px;
+}
+
+.indexCategoriesChild {
+  border-bottom: solid 2px black;
+}
+
+.indexLinks {
+  color: #003354 !important;
+  font-weight: 700;
+}
+
+.indexLinks:visited {
+  color: #003354 !important;
+}
+
+.slider {
+  overflow-y: hidden;
+  animation: openMove 2s 1 forwards;
+}
+
+.slider.closed {
+  animation: closeMove .5s 1 forwards;
+}
+
+@keyframes closeMove {
+    0%   {max-height: 500px;}
+    100% {max-height: 0;}
+}
+
+@keyframes openMove {
+    0%   {max-height: 0;}
+    100% {max-height: 500px;}
+}
+
+.sliderClosed{
+  overflow-y: hidden;
+  max-height: 0;
+}

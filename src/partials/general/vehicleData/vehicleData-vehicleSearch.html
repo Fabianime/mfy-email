@@ -1,0 +1,334 @@
+<!-- vehicleData-vehicleSearch -->
+[#if VehicleData?? && (VehicleData?is_hash || VehicleData?is_hash_ex)]
+  [#if VehicleData.vehicleConfiguration??]
+    [#assign vehicleConf = VehicleData.vehicleConfiguration]
+  [/#if]
+  [#if VehicleData.condition??]
+    [#assign condition = VehicleData.condition]
+  [/#if]
+  [#if VehicleData.technicalData??]
+    [#assign techData = VehicleData.technicalData]
+  [/#if]
+
+  <row class="strong" id="vehicleData-vehicleSearchHeadline">
+    <columns large="12">
+      <strong>{{mercedes-config-text}}</strong>
+    </columns>
+  </row>
+  <table class="gmail" id="vehicleData-vehicleSearchContent">
+  [#if vehicleConf?? && vehicleConf.brand??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{brand}}:
+        </p>
+      </th>
+
+      [#if vehicleConf.brand != ""] 
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            ${vehicleConf.brand}
+          </p>
+        </th>
+      [#else]
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            {{not-specified}}
+          </p>
+        </th>
+      [/#if]
+    </tr>
+  [/#if]
+  [#if vehicleConf?? && vehicleConf.salesDescription??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{bodyTyp}}:
+        </p>
+      </th>
+
+      [#if vehicleConf.salesDescription != ""]  
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            ${vehicleConf.salesDescription}
+          </p>
+        </th>
+      [#else]
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            {{not-specified}}
+          </p>
+        </th>
+      [/#if]
+    </tr>
+  [/#if]
+  [#if condition?? && condition.firstRegistrationDate??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{firstRegistrationDate}}:
+        </p>
+      </th>
+
+      [#if condition.firstRegistrationDate != ""] 
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            ${condition.firstRegistrationDate}
+          </p>
+        </th>
+      [#else]
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            {{not-specified}}
+          </p>
+        </th>
+      [/#if]
+    </tr>
+  [/#if]
+  [#if condition?? && condition.mileage??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{mileage}}:
+        </p>
+      </th>
+
+      [#if condition.mileage != ""] 
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            ${condition.mileage}
+          </p>
+        </th>
+      [#else]
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            {{not-specified}}
+          </p>
+        </th>
+      [/#if]
+    </tr>
+  [/#if]
+  [#if vehicleConf?? && vehicleConf.bodyGroup??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{bodyGroup}}:
+        </p>
+      </th>
+
+      [#if vehicleConf.bodyGroup != ""] 
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            ${vehicleConf.bodyGroup}
+          </p>
+        </th>
+      [#else]
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            {{not-specified}}
+          </p>
+        </th>
+      [/#if]
+    </tr>
+  [/#if]
+  [#if techData?? && techData.enginePower??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{enginePower}}:
+        </p>
+      </th>
+
+      [#if techData.enginePower != ""]  
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            ${techData.enginePower}
+          </p>
+        </th>
+      [#else]
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            {{not-specified}}
+          </p>
+        </th>
+      [/#if]
+    </tr>
+  [/#if]
+  [#if techData?? && techData.cylinderCapacity??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{cylinderCapacity}}:
+        </p>
+      </th>
+
+      [#if techData.cylinderCapacity != ""] 
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            ${techData.cylinderCapacity}
+          </p>
+        </th>
+      [#else]
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            {{not-specified}}
+          </p>
+        </th>
+      [/#if]
+    </tr>
+  [/#if]
+  [#if techData?? && techData.engineType??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{engineType}}:
+        </p>
+      </th>
+
+      [#if techData.engineType != ""] 
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            ${techData.engineType}
+          </p>
+        </th>
+      [#else]
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            {{not-specified}}
+          </p>
+        </th>
+      [/#if]
+    </tr>
+  [/#if]
+  [#if techData?? && techData.transmissionType??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{driveConcept}}:
+        </p>
+      </th>
+
+      [#if techData.transmissionType != ""] 
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            ${techData.transmissionType}
+          </p>
+        </th>
+      [#else]
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            {{not-specified}}
+          </p>
+        </th>
+      [/#if]
+    </tr>
+  [/#if]
+  [#if vehicleConf?? && vehicleConf.paintPrimary?? && vehicleConf.paintPrimary.name??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{paintPrimary}}:
+        </p>
+      </th>
+
+      [#if vehicleConf.paintPrimary.name != ""] 
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            ${vehicleConf.paintPrimary.name}
+          </p>
+        </th>
+      [#else]
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            {{not-specified}}
+          </p>
+        </th>
+      [/#if]
+    </tr>
+  [/#if]
+  [#if vehicleConf?? && vehicleConf.upholstery?? && vehicleConf.upholstery.name??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{upholstery}}:
+        </p>
+      </th>
+
+      [#if vehicleConf.upholstery.name != ""] 
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            ${vehicleConf.upholstery.name}
+          </p>
+        </th>
+      [#else]
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            {{not-specified}}
+          </p>
+        </th>
+      [/#if]
+    </tr>
+  [/#if]
+  [#if condition?? && condition.numberPreviousOwners??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{numberPreviousOwners}}:
+        </p>
+      </th>
+      <th style="vertical-align:bottom;" class="small-12 large-8">
+        <p class="pasSpecial" style="margin-bottom: 0px">
+          ${condition.numberPreviousOwners}
+        </p>
+      </th>
+    </tr>
+  [/#if]
+  [#if VehicleData.ucNumber??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{ucNumber}}:
+        </p>
+      </th>
+      <th style="vertical-align:bottom;" class="small-12 large-8">
+        <p class="pasSpecial" style="margin-bottom: 0px">
+          ${VehicleData.ucNumber}
+        </p>
+      </th>
+    </tr>
+  [/#if]
+  [#if VehicleData.orderNumber??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{orderNumber}}:
+        </p>
+      </th>
+      <th style="vertical-align:bottom;" class="small-12 large-8">
+        <p class="pasSpecial" style="margin-bottom: 0px">
+          ${VehicleData.orderNumber}
+        </p>
+      </th>
+    </tr>
+  [/#if]
+  [#if VehicleData.uvnNumber??]
+    <tr>
+      <th style="vertical-align:bottom;" class="small-12 large-4">
+        <p style="margin-bottom: 0px">
+          {{uvnNumber}}:
+        </p>
+      </th>
+      <th style="vertical-align:bottom;" class="small-12 large-8">
+        <p class="pasSpecial" style="margin-bottom: 0px">
+          ${VehicleData.uvnNumber}
+        </p>
+      </th>
+    </tr>
+  [/#if]
+  </table>
+  <row>
+    <columns large="16">
+      <hr>
+    </columns>
+  </row>
+[/#if]

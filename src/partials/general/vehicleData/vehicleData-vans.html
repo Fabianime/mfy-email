@@ -1,0 +1,309 @@
+<!-- vehicleData-vans -->
+[#if VehicleData?? && (VehicleData?is_hash || VehicleData?is_hash_ex)]
+  [#if VehicleData.vehicleConfiguration??]
+    [#assign vehicleConf = VehicleData.vehicleConfiguration]
+  [/#if]
+  [#if VehicleData.condition??]
+    [#assign condition = VehicleData.vehicleCondition]
+  [/#if]
+  [#if VehicleData.technicalData??]
+    [#assign techData = VehicleData.technicalData]
+  [/#if]
+  [#if VehicleData.vehicleData??]
+    [#assign vehicData = VehicleData.vehicleData]
+  [/#if]
+
+  <row class="strong" id="vehicleData-vansHeadline">
+    <columns large="12">
+      <strong>{{mercedes-config-text}}</strong>
+    </columns>
+  </row>
+  <table class="gmail" id="vehicleData-vansContent">
+    [#if vehicleConf?? && vehicleConf.salesDescription??]
+      <tr>
+        <th style="vertical-align:bottom;" class="small-12 large-4">
+          <p style="margin-bottom: 0px">
+            {{salesDescription}}:
+          </p>
+        </th>
+
+        [#if vehicleConf.salesDescription != ""]  
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              ${vehicleConf.salesDescription}
+            </p>
+          </th>
+        [#else]
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              {{not-specified}}
+            </p>
+          </th>
+        [/#if]
+      </tr>
+    [/#if]
+    [#if vehicData?? && vehicData.firstRegistrationDate??]
+      <tr>
+        <th style="vertical-align:bottom;" class="small-12 large-4">
+          <p style="margin-bottom: 0px">
+            {{firstRegistrationDate}}:
+          </p>
+        </th>
+
+        [#if vehicData.firstRegistrationDate != ""] 
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              [#setting date_format="MM/yyyy"]
+              ${vehicData.firstRegistrationDate?datetime("yyyyMMdd")?date}
+            </p>
+          </th>
+        [#else]
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              {{not-specified}}
+            </p>
+          </th>
+        [/#if]
+      </tr>
+    [/#if]
+    [#if vehicleCondition?? && vehicleCondition.mileage??]
+      <tr>
+        <th style="vertical-align:bottom;" class="small-12 large-4">
+          <p style="margin-bottom: 0px">
+            {{mileage}}:
+          </p>
+        </th>
+
+        [#if vehicleCondition.mileage != ""]  
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              ${vehicleCondition.mileage}
+            </p>
+          </th>
+        [#else]
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              {{not-specified}}
+            </p>
+          </th>
+        [/#if]
+      </tr>
+    [/#if]
+    [#if techData?? && techData.enginePrimary?? && techData.enginePrimary.powerKW?? && techData.enginePrimary.powerPS??]
+      <tr>
+        <th style="vertical-align:bottom;" class="small-12 large-4">
+          <p style="margin-bottom: 0px">
+            {{enginePower}}:
+          </p>
+        </th>
+        <th style="vertical-align:bottom;" class="small-12 large-8">
+          <p class="pasSpecial" style="margin-bottom: 0px">
+            ${techData.enginePrimary.powerKW} (${techData.enginePrimary.powerPS} {{powerPS}})
+          </p>
+        </th>
+      </tr>
+    [/#if]
+    [#if vehicData?? && vehicData.enginePrimary?? && vehicData.enginePrimary.cylinderCapacity??]
+      <tr>
+        <th style="vertical-align:bottom;" class="small-12 large-4">
+          <p style="margin-bottom: 0px">
+            {{cylinderCapacity}}:
+          </p>
+        </th>
+
+        [#if vehicData.firstRegistrationDate != ""] 
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              ${vehicData.enginePrimary.cylinderCapacity} cm&sup3;
+            </p>
+          </th>
+        [#else]
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              {{not-specified}}
+            </p>
+          </th>
+        [/#if]
+      </tr>
+    [/#if]
+    [#if vehicleConf??]
+      [#if vehicleConf.engineConcept?? && vehicleConf.engineConcept.text??]
+        <tr>
+          <th style="vertical-align:bottom;" class="small-12 large-4">
+            <p style="margin-bottom: 0px">
+              {{engineType}}:
+            </p>
+          </th>
+
+          [#if vehicleConf.engineConcept.text != ""]  
+            <th style="vertical-align:bottom;" class="small-12 large-8">
+              <p class="pasSpecial" style="margin-bottom: 0px">
+                ${vehicleConf.engineConcept.text}
+              </p>
+            </th>
+          [#else]
+            <th style="vertical-align:bottom;" class="small-12 large-8">
+              <p class="pasSpecial" style="margin-bottom: 0px">
+                {{not-specified}}
+              </p>
+            </th>
+          [/#if]
+        </tr>
+      [/#if]
+      [#if vehicleConf.bodyGroup?? && vehicleConf.bodyGroup.text??]
+        <tr>
+          <th style="vertical-align:bottom;" class="small-12 large-4">
+            <p style="margin-bottom: 0px">
+              {{bodyGroup}}:
+            </p>
+          </th>
+
+          [#if vehicleConf.bodyGroup.text != ""]  
+            <th style="vertical-align:bottom;" class="small-12 large-8">
+              <p class="pasSpecial" style="margin-bottom: 0px">
+                ${vehicleConf.bodyGroup.text}
+              </p>
+            </th>
+          [#else]
+            <th style="vertical-align:bottom;" class="small-12 large-8">
+              <p class="pasSpecial" style="margin-bottom: 0px">
+                {{not-specified}}
+              </p>
+            </th>
+          [/#if]
+        </tr>
+      [/#if]
+      [#if vehicleConf.lengthGroup?? && vehicleConf.lengthGroup.text??]
+        <tr>
+          <th style="vertical-align:bottom;" class="small-12 large-4">
+            <p style="margin-bottom: 0px">
+              {{lengthGroup}}:
+            </p>
+          </th>
+
+          [#if vehicleConf.lengthGroup.text != ""]  
+            <th style="vertical-align:bottom;" class="small-12 large-8">
+              <p class="pasSpecial" style="margin-bottom: 0px">
+                ${vehicleConf.lengthGroup.text}
+              </p>
+            </th>
+          [#else]
+            <th style="vertical-align:bottom;" class="small-12 large-8">
+              <p class="pasSpecial" style="margin-bottom: 0px">
+                {{not-specified}}
+              </p>
+            </th>
+          [/#if]
+        </tr>
+      [/#if]
+    [/#if]
+    [#if vehicleCondition?? && vehicleCondition.numberPreviousOwners??]
+      <tr>
+        <th style="vertical-align:bottom;" class="small-12 large-4">
+          <p style="margin-bottom: 0px">
+            {{numberPreviousOwners}}:
+          </p>
+        </th>
+
+        [#if vehicleCondition.numberPreviousOwners != ""] 
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              ${vehicleCondition.numberPreviousOwners}
+            </p>
+          </th>
+        [#else]
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              {{not-specified}}
+            </p>
+          </th>
+        [/#if]
+      </tr>
+    [/#if]
+    [#if vehicleConf?? && vehicleConf.paintPrimary?? && vehicleConf.paintPrimary.text??]
+      <tr>
+        <th style="vertical-align:bottom;" class="small-12 large-4">
+          <p style="margin-bottom: 0px">
+            {{paintPrimary}}:
+          </p>
+        </th>
+
+        [#if vehicleConf.paintPrimary.text != ""] 
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              ${vehicleConf.paintPrimary.text}
+            </p>
+          </th>
+        [#else]
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              {{not-specified}}
+            </p>
+          </th>
+        [/#if]
+      </tr>
+    [/#if]
+    [#if vehicData?? && vehicData.ucNumber??]
+      <tr>
+        <th style="vertical-align:bottom;" class="small-12 large-4">
+          <p style="margin-bottom: 0px">
+            {{ucNumber}}:
+          </p>
+        </th>
+
+        [#if vehicData.ucNumber != ""]  
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              ${vehicData.ucNumber}
+            </p>
+          </th>
+        [#else]
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              {{not-specified}}
+            </p>
+          </th>
+        [/#if]
+      </tr>
+    [/#if]
+    [#if VehicleData.salesInformation?? && VehicleData.salesInformation.salesProgram?? && VehicleData.salesInformation.salesProgram?is_enumerable && VehicleData.salesInformation.salesProgram[0].text??]
+      <tr>
+        <th style="vertical-align:bottom;" class="small-12 large-4">
+          <p style="margin-bottom: 0px">
+            {{salesInformation}}:
+          </p>
+        </th>
+
+        [#if VehicleData.salesInformation.salesProgram[0].text != ""] 
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              ${VehicleData.salesInformation.salesProgram[0].text}
+            </p>
+          </th>
+        [#else]
+          <th style="vertical-align:bottom;" class="small-12 large-8">
+            <p class="pasSpecial" style="margin-bottom: 0px">
+              {{not-specified}}
+            </p>
+          </th>
+        [/#if]
+      </tr>
+    [/#if]
+  </table>
+  [#if "{{salutation-Ms}}" == "" && VehicleData.id?? && VehicleData.id != "" && VehicleData.metaData?? && (VehicleData.metaData?is_hash || VehicleData.metaData?is_hash_ex) && VehicleData.metaData.countryIsoCode?? && VehicleData.metaData.countryIsoCode != "" && VehicleData.metaData.language?? && VehicleData.metaData.language != "" && vehicleConf?? && vehicleConf.salesDescription?? && vehicleConf.salesDescription != ""]
+      
+    <row class="vehicleLink" style="margin-top: 10px">
+      <columns small="12" large="4">
+        <p class="vehicleLinkP">{{vehicleLink}}:</p>
+      </columns>
+      <columns small="12" large="8">
+        <p class="vehicleLinkP"><a href="https://www.mercedes-benz.net/v/${VehicleData.metaData.countryIsoCode}/${VehicleData.metaData.language}/detail/${VehicleData.id}">${vehicleConf.salesDescription}</a></p>
+      </columns>
+    </row>
+  [/#if]
+  <row>
+    <columns large="16">
+      <hr>
+    </columns>
+  </row>
+[/#if]

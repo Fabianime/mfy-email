@@ -1,0 +1,196 @@
+<!-- vehicle-dummyDaten -->
+<row class="strong">
+  <columns large="12">
+    <strong>Fahrzeugeigenschaften</strong>
+  </columns>
+</row>
+<row class="gmail">
+  <columns class="tableMergeTable1" small="12" large="4">
+    <p class="pas">
+      <pas class="tableMerge1">Fahrzeugtypbezeichnung :</pas><br>
+      <pas class="tableMerge1">Erstzulassung:</pas><br>
+      <pas class="tableMerge1">Laufleistung:</pas><br>
+      <pas class="tableMerge1">Motorleistung:</pas><br>
+      <pas class="tableMerge1">Hubraum:</pas><br>
+      <pas class="tableMerge1">Motorart:</pas><br>
+      <pas class="tableMerge1">Aufbau:</pas><br>
+      <pas class="tableMerge1">Fahrzeuglänge:</pas><br>
+      <pas class="tableMerge1">Radstand:</pas><br>
+      <pas class="tableMerge1">Farbe:</pas><br>
+      <pas class="tableMerge1">Vorbesitzer:</pas><br>
+      <pas class="tableMerge1">GFZ-Nummer:</pas><br>
+      <pas class="tableMerge1">Qualitätssiegel:</pas><br>
+    </p>
+  </columns>
+  <columns class="tableMergeTable2 removeBg" small="12" large="8">
+    <p class="pas">
+      <pas class="tableMerge2">Mercedes-Benz Citan 108 CDI Kasten Lang</pas><br>
+      <pas class="tableMerge2">04/2013</pas><br>
+      <pas class="tableMerge2">93.000 km</pas><br>
+      <pas class="tableMerge2">55 kW (75 PS)</pas><br>
+      <pas class="tableMerge2">1.461 cm³</pas><br>
+      <pas class="tableMerge2">Dieselantrieb</pas><br>
+      <pas class="tableMerge2">Kastenwagen</pas><br>
+      <pas class="tableMerge2">Lang</pas><br>
+      <pas class="tableMerge2">2.697 mm</pas><br>
+      <pas class="tableMerge2">arktikweiß</pas><br>
+      <pas class="tableMerge2">1</pas><br>
+      <pas class="tableMerge2">NFZ708652H</pas><br>
+      <pas class="tableMerge2">Junge Sterne Transporter</pas><br>
+    </p>
+  </columns>
+</row>
+[#if "{{salutation-Ms}}" == ""]
+  <row class="vehicleLink" style="margin-top: 10px">
+    <columns small="12" large="4">
+      <p class="vehicleLinkP">Link zum Fahrzeug: </p>
+    </columns>
+    <columns small="12" large="8">
+      <a href="https://www.mercedes-benz.net/v/de/de/detail/33f9f8d33a5fc996e7950276eea7f2a1?b=usedcarsearch">Mercedes-Benz Citan Kasten Lang</a>
+    </columns>
+  </row>
+[/#if]
+
+<row>
+  <columns large="16">
+    <hr>
+  </columns>
+</row>
+
+
+
+<!-- fahrzeugdatn-vs -->
+[#if VehicleData?? && (VehicleData?is_hash || VehicleData?is_hash_ex)]
+  [#if VehicleData.vehicleConfiguration??]
+    [#assign vehicleConf = VehicleData.vehicleConfiguration]
+  [/#if]
+  [#if VehicleData.condition??]
+    [#assign condition = VehicleData.condition]
+  [/#if]
+  [#if VehicleData.technicalData??]
+    [#assign techData = VehicleData.technicalData]
+  [/#if]
+
+  <row class="strong">
+    <columns large="12">
+      <strong>{{mercedes-config-text}}</strong>
+    </columns>
+  </row>
+  <row class="gmail">
+    <columns class="tableMergeTable1" small="12" large="4">
+      <p class="pas">
+        [#if vehicleConf?? && vehicleConf.brand?? && vehicleConf.brand != ""]
+          <pas class="tableMerge1">{{brand}}:</pas><br>
+        [/#if]
+        [#if vehicleConf?? && vehicleConf.salesDescription?? && vehicleConf.salesDescription != ""]
+          <pas class="tableMerge1">{{bodyTyp}}:</pas><br>
+        [/#if]
+        [#if condition?? && condition.firstRegistrationDate?? && condition.firstRegistrationDate != ""]
+          <pas class="tableMerge1">{{firstRegistrationDate}}:</pas><br>
+        [/#if]
+        [#if condition?? && condition.mileage?? && condition.mileage != ""]
+          <pas class="tableMerge1">{{mileage}}:</pas><br>
+        [/#if]
+        [#if vehicleConf?? && vehicleConf.bodyGroup?? && vehicleConf.bodyGroup != ""]
+          <pas class="tableMerge1">{{bodyGroup}}:</pas><br>
+        [/#if]
+        [#if techData?? && techData.enginePower?? && techData.enginePower != ""]
+          <pas class="tableMerge1">{{enginePower}}:</pas><br>
+        [/#if]
+        [#if techData?? && techData.cylinderCapacity?? && techData.cylinderCapacity != ""]
+          <pas class="tableMerge1">{{cylinderCapacity}}:</pas><br>
+        [/#if]
+        [#if techData?? && techData.engineType?? && techData.engineType != ""]
+          <pas class="tableMerge1">{{engineType}}:</pas><br>
+        [/#if]
+        [#if techData?? && techData.transmissionType?? && techData.transmissionType != ""]
+          <pas class="tableMerge1">{{driveConcept}}:</pas><br>
+        [/#if]
+        [#if vehicleConf?? && vehicleConf.paintPrimary?? && vehicleConf.paintPrimary.name?? && vehicleConf.paintPrimary.name != ""]
+          <pas class="tableMerge1">{{paintPrimary}}:</pas><br>
+        [/#if]
+        [#if vehicleConf?? && vehicleConf.upholstery?? && vehicleConf.upholstery.name?? && vehicleConf.upholstery.name != ""]
+          <pas class="tableMerge1">{{upholstery}}:</pas><br>
+        [/#if]
+        [#if condition?? && condition.numberPreviousOwners??]
+          <pas class="tableMerge1">{{numberPreviousOwners}}:</pas><br>
+        [/#if]
+        [#if VehicleData.ucNumber??]
+          <pas class="tableMerge1">{{ucNumber}}:</pas><br>
+        [/#if]
+        [#if VehicleData.orderNumber??]
+          <pas class="tableMerge1">{{orderNumber}}:</pas><br>
+        [/#if]
+        [#if VehicleData.uvnNumber??]
+          <pas class="tableMerge1">{{uvnNumber}}:</pas><br>
+        [/#if]
+      </p>
+    </columns>
+    <columns class="tableMergeTable2 removeBg" small="12" large="8">
+      <p class="pas">
+        [#if vehicleConf?? && vehicleConf.brand?? && vehicleConf.brand != ""]
+          <pas class="tableMerge2">${vehicleConf.brand}</pas><br>
+        [/#if]
+        [#if vehicleConf?? && vehicleConf.salesDescription?? && vehicleConf.salesDescription != "" && vehicleConf.bodyGroup?? && vehicleConf.bodyGroup != ""]
+          <pas class="tableMerge2">${vehicleConf.salesDescription}</pas><br>
+        [/#if]
+        [#if condition?? && condition.firstRegistrationDate?? && condition.firstRegistrationDate != ""]
+          <pas class="tableMerge2">${condition.firstRegistrationDate}</pas><br>
+        [/#if]
+        [#if condition?? && condition.mileage?? && condition.mileage != ""]
+          <pas class="tableMerge2">${condition.mileage}</pas><br>
+        [/#if]
+        [#if vehicleConf?? && vehicleConf.bodyGroup?? && vehicleConf.bodyGroup != ""]
+          <pas class="tableMerge2">${vehicleConf.bodyGroup}</pas><br>
+        [/#if]
+        [#if techData?? && techData.enginePower?? && techData.enginePower != ""]
+          <pas class="tableMerge2">${techData.enginePower}</pas><br>
+        [/#if]
+        [#if techData?? && techData.cylinderCapacity?? && techData.cylinderCapacity != ""]
+          <pas class="tableMerge2">${techData.cylinderCapacity}</pas><br>
+        [/#if]
+        [#if techData?? && techData.engineType?? && techData.engineType != ""]
+          <pas class="tableMerge2">${techData.engineType}</pas><br>
+        [/#if]
+        [#if techData?? && techData.transmissionType?? && techData.transmissionType != ""]
+          <pas class="tableMerge2">${techData.transmissionType}</pas><br>
+        [/#if]
+        [#if vehicleConf?? && vehicleConf.paintPrimary?? && vehicleConf.paintPrimary.name?? && vehicleConf.paintPrimary.name != ""]
+          <pas class="tableMerge2">${vehicleConf.paintPrimary.name}</pas><br>
+        [/#if]
+        [#if vehicleConf?? && vehicleConf.upholstery?? && vehicleConf.upholstery.name?? && vehicleConf.upholstery.name != ""]
+          <pas class="tableMerge2">${vehicleConf.upholstery.name}</pas><br>
+        [/#if]
+        [#if condition?? && condition.numberPreviousOwners??]
+          <pas class="tableMerge2">${condition.numberPreviousOwners}</pas><br>
+        [/#if]
+        [#if VehicleData.ucNumber??]
+          <pas class="tableMerge2">${VehicleData.ucNumber}</pas><br>
+        [/#if]
+        [#if VehicleData.orderNumber??]
+          <pas class="tableMerge2">${VehicleData.orderNumber}</pas><br>
+        [/#if]
+        [#if VehicleData.uvnNumber??]
+          <pas class="tableMerge2">${VehicleData.uvnNumber}</pas><br>
+        [/#if]
+      </p>
+    </columns>
+  </row>
+
+  [#if "{{salutation-Ms}}" == ""]
+    <row class="vehicleLink" style="margin-top: 10px">
+      <columns small="12" large="4">
+        <p class="vehicleLinkP">Link zum Fahrzeug: </p>
+      </columns>
+      <columns small="12" large="8">
+        <a href="https://www.mercedes-benz.net/v/de/de/detail/33f9f8d33a5fc996e7950276eea7f2a1?b=usedcarsearch">Mercedes-Benz Citan Kasten Lang</a>
+      </columns>
+    </row>
+  [/#if]
+  
+  <row>
+    <columns large="16">
+      <hr>
+    </columns>
+  </row>
+[/#if]

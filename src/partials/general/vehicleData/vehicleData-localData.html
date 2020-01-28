@@ -1,0 +1,26 @@
+<!-- vehicleData-localData -->
+<row class="strong" id="vehicleData-localDataHeadline">
+  <columns large="12">
+    <strong>{{mercedes-config-text}}</strong>
+  </columns>
+</row>
+
+[#if YearOfManufacture??]
+  [#assign YearOfManufacture = YearOfManufacture?replace("prior","{{priorText}} ")]
+[/#if]
+
+[#assign displayData = [
+{'displayVariable':'TypeOfVehicle','displayLabel':'{{TypeOfVehicle}}'},
+{'displayVariable':'Vin','displayLabel':'{{vin}}'},
+{'displayVariable':'LicensePlate','displayLabel':'{{LicensePlate}}'},
+{'displayVariable':'Mileage','displayLabel':'{{mileage}}'},
+{'displayVariable':'YearOfManufacture','displayLabel':'{{manuYear}}'}
+]]
+<table class="gmail" id="userDataContent">
+[#list displayData as displayValue]{{>listItem}}[/#list]
+</table>
+<row>
+  <columns large="16">
+    <hr>
+  </columns>
+</row>

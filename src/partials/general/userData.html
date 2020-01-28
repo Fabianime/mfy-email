@@ -1,0 +1,44 @@
+<!-- userData -->
+<row class="strong" id="userDataHeadline">
+  <columns large="12">
+    <strong>{{user-data-text}}</strong>
+  </columns>
+</row>
+
+[#assign displayData = [
+{'special':'FirstName'},
+{'displayVariable':'fullName','displayLabel':'{{name}}'},
+{'displayVariable':'phoneNumber','displayLabel':'{{tel}}'},
+{'displayVariable':'email','displayLabel':'{{eMail}}'}
+]]
+<table class="gmail" id="userDataContent">
+  [#list displayData as displayValue]
+    [#if displayValue.special??]
+      {{>listItemSpecial_UserData}}
+    [#else]
+      {{>listItem}}
+    [/#if]
+  [/#list]
+</table>
+<row>
+  <columns large="16">
+    <hr>
+  </columns>
+</row>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

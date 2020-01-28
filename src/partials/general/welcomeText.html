@@ -1,0 +1,34 @@
+<!-- welcomeText -->
+<row id="welcomeText">
+    <columns small="12">
+        [#if SalutationValue?? && SalutationValue != "" && SalutationValue == "mr"]
+            <h6>{{salutation-Mr}}
+        [#elseif SalutationValue?? && SalutationValue != "" && SalutationValue == "ms"]
+            <h6>{{salutation-Ms}}
+        [#elseif SalutationValue?? && SalutationValue != "" && SalutationValue == "mrs"]
+            <h6>{{salutation-Mrs}}
+        [#elseif SalutationValue?? && SalutationValue != "" && SalutationValue == "miss"]
+            <h6>{{salutation-Miss}}
+        [#elseif SalutationValue?? && SalutationValue != "" && SalutationValue == "dr"]
+            <h6>{{salutation-Dr}}
+        [#else]
+            <h6>{{salutation-Mx}}
+        [/#if]
+
+        [#if fullName?? && fullName != ""]
+            ${fullName},</h6>
+        [/#if]
+
+        <p>
+            [#if "" != "{{welcome-text-1}}"]
+            {{welcome-text-1}}<br><br>
+            [/#if]
+            [#if "" != "{{welcome-text-2}}"]
+            {{welcome-text-2}}<br>
+            [/#if]
+            [#if "" != "{{welcome-text-3}}"]
+            {{welcome-text-3}}<br>
+            [/#if]
+        </p>
+    </columns>
+</row>

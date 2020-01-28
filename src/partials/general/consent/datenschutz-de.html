@@ -1,0 +1,23 @@
+[#if ConsentSummary??]
+  <!-- Datenschutz -->
+  <row class="strong" id="consentHeadline">
+    <columns large="12">
+      <strong>{{datenschutz-headline}}</strong>
+    </columns>
+  </row>
+  <row>
+    <columns large="12" id="consentContent">
+      <p>
+          <br>
+        [#if ConsentSummary != "" && ConsentSummary == "true"]
+          [#if "{{datenschutz-hint}}" != ""]<strong>{{datenschutz-hint}}</strong><br><br>[/#if]
+            {{>datenschutz-de-content}}
+            {{>reachableBy}}
+          [#else]
+            {{datenschutz-nicht}}
+          [/#if]
+          {{>endText}}
+        </p>
+    </columns>
+  </row>
+[/#if]
