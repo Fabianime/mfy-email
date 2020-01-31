@@ -6,3 +6,7 @@ dist
 .sass-cache
 .awspublish*
 config.json
+
+
+* Idea files
+.idea/
